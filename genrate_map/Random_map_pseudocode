@@ -1,0 +1,51 @@
+function random_map(size,obstacledensity)
+    define grid of size *size
+
+
+    for each cell in grid then 
+        if random() < obstacledensity then 
+            cell = obstacle
+        else 
+            cell = free
+        
+    pick random free cell as a start 
+    pick random free cell as a object
+    pick random free cell as a drop_point
+
+    while  not (reachable(start,object) And reachable(object, drop_point))
+            regenrate  map + add new (start,object,drop_point)
+    
+
+
+    return grid , start , object , drop_point
+
+function reachable(grid, start, goal):
+
+    CREATE an empty queue
+    CREATE an empty set visited
+
+    enqueue start into queue
+    add start to visited
+
+    WHILE queue is not empty:
+
+        current = DEQUEUE from queue
+
+        IF current == goal:
+            RETURN True
+
+        FOR each neighbor cell of current:
+            IF neighbor is inside the grid AND
+               neighbor is not an obstacle AND
+               neighbor not in visited:
+
+                ADD neighbor to visited
+                ENQUEUE neighbor into queue
+
+    END WHILE
+    
+    RETURN False
+
+    
+    
+
