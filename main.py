@@ -19,6 +19,7 @@ def run_BFS(grid, start_state, objective, drop_points):
     print("Path to pickup:", path)
     print("Visited:", result['visited'])
     print("Node expansions:", result['Node_expansion'])
+    print("Time taken:", result['time'])
     last = path[-1]
     grid_bfs[last[0]][last[1]] = ' '
     drop = BFS(grid_bfs, last, None, drop_points)
@@ -35,10 +36,14 @@ def run_DFS(grid, start_state, objective, drop_points):
         return
     path = result['path']
     print("Path to pickup:", path)
+    print("Visited:", result['visited'])
+    print("Node expansions:", result['Node_expansion'])
+    print("Time taken:", result['time'])
     last = path[-1]
     grid_dfs[last[0]][last[1]]=' '
     drop = DFS(grid_dfs,last,None,drop_points)
     print_grid_path(path, grid_dfs)
+
 
 def run_UCS(grid, start_state, objective, drop_points):
     print("\n=========== UCS Algorithm Execution ===========\n")
@@ -49,6 +54,11 @@ def run_UCS(grid, start_state, objective, drop_points):
         return
     path = result['path']
     print("Path:", path)
+    print("Visited:", result['visited'])
+    print("Node expansions:", result['Node_expansion'])
+    print("Time taken:", result['time'])
+
+    print_grid_path(path, grid_cp)
 
 def run_IDDFS(grid, start_state, objective, drop_points):
     print("\n=========== IDDFS Algorithm Execution ===========\n")
@@ -59,6 +69,10 @@ def run_IDDFS(grid, start_state, objective, drop_points):
         return
     path = result['path']
     print("Path:", path)
+    print("Visited:", result['visited'])
+    print("Node expansions:", result['depth'])
+    print("Time taken:", result['time'])
+    print_grid_path(path, grid_cp)
 
 def run_Greedy(grid, start_state, objective, drop_points):
     print("\n=========== Greedy Algorithm Execution ===========\n")
@@ -68,6 +82,10 @@ def run_Greedy(grid, start_state, objective, drop_points):
     print_heuristic_map(hmap)
     result = Greedy(grid_cp,start_state,objective,drop_points,hmap)
     print(result['path'])
+    print("Visited:", result['visited'])
+    print("Node expansions:", result['node_expansion'])
+    print("Time taken:", result['time'])
+    print_grid_path(result['path'], grid_cp)
 
 def run_Astar(grid, start_state, objective, drop_points):
     print("\n=========== A* Algorithm Execution ===========\n")
@@ -77,6 +95,10 @@ def run_Astar(grid, start_state, objective, drop_points):
     print_heuristic_map(hmap)
     result = A_star(grid_cp,start_state,objective,drop_points)
     print(result['path'])
+    print("Visited:", result['visited'])
+    print("Node expansions:", result['node_expansion'])
+    print("Time taken:", result['time'])
+    print_grid_path(result['path'], grid_cp)
 
 
 def main():
