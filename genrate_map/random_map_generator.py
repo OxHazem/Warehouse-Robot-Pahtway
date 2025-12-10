@@ -15,7 +15,7 @@ def is_reachable(grid, start, goal):
         if (r, c) == (gr, gc):
             return True
         
-        # possible movements
+        
         moves = [(r-1,c), (r+1,c), (r,c-1), (r,c+1)]
         for nr, nc in moves:
             if 0 <= nr < size and 0 <= nc < size:
@@ -28,7 +28,7 @@ def is_reachable(grid, start, goal):
 
 def Random_map (size,obstacle_density,weighted=False , heurisitc=False) : 
     while True : 
-        grid = [] # made 2d materces filled * 
+        grid = [] 
         for r in range(size) : 
             row=[]
             for c in range(size): 
@@ -47,7 +47,7 @@ def Random_map (size,obstacle_density,weighted=False , heurisitc=False) :
                         grid[r][c] = random.choices(
                         
                             ["*", "~", "^"], 
-                            weights=[0.7, 0.2, 0.1],  # probability distribution
+                            weights=[0.7, 0.2, 0.1],  
                             k=1
                         
                         )[0]
